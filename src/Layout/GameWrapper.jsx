@@ -32,9 +32,10 @@ export const GameWrapper = () => {
         setGrid(newGrid);
         setPointer(pointer + 1);
     }
+    const customStyle = winningGrid.length > 0 ? {pointerEvents: 'none'} : null;
 
     return (
-        <ul className="game-wrapper" >
+        <ul className="game-wrapper" style={customStyle}>
             { winningGrid.length > 0 
             ? winningGrid.map(box => (<Box key={box.id} boxElement={box} clicked={clickHandler}/>))
             : grid.map(box => (<Box key={box.id} boxElement={box} clicked={clickHandler}/>))}
