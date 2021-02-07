@@ -53,6 +53,10 @@
   border-radius: 15px;
   font-size: 0.8em;
 }
+.btn-active {
+  font-weight: 400;
+}
+
 .player {
   margin-bottom: 0px;
   font-size: 0.8em;
