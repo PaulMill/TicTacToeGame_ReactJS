@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, PlayerResult } from '../UI_Components';
 
 export const GameControlsWrapper = ({ score, setScore, setNewRound, roundEnds }) => {
@@ -22,4 +23,32 @@ export const GameControlsWrapper = ({ score, setScore, setNewRound, roundEnds })
             <Button text={'NEW ROUND'} clicked={() => setNewRound(true)} isActive={roundEnds} color={'#7ed200c2'}/>
         </div>
     )
+}
+
+GameControlsWrapper.propTypes = {
+    score: PropTypes.objectOf(
+        PropTypes.shape({
+            X: PropTypes.objectOf(
+                PropTypes.shape({
+                    score: PropTypes.number.isRequired,
+                    isWon: PropTypes.bool.isRequired
+                })
+            ),
+            O: PropTypes.objectOf(
+                PropTypes.shape({
+                    score: PropTypes.number.isRequired,
+                    isWon: PropTypes.bool.isRequired
+                })
+            ),
+            T: PropTypes.objectOf(
+                PropTypes.shape({
+                    score: PropTypes.number.isRequired,
+                    isWon: PropTypes.bool.isRequired
+                })
+            )
+        })
+    ).isRequired,
+    setScore: PropTypes.func,
+    setNewRound: PropTypes.func,
+    roundEnds: PropTypes.bool.isRequired
 }
