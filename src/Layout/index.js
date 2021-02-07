@@ -1,4 +1,5 @@
 import { GameArea } from './GameArea';
-import { PageHeader } from "./PageHeader";
+import { PageHeader } from './PageHeader';
+import { GameWrapper } from './GameWrapper';
 
-export { GameArea, PageHeader };
+export { GameArea, PageHeader, GameWrapper };
