@@ -66,6 +66,10 @@
   margin-bottom: 0px;
   font-size: 0.8em;
 }
+.player-won {
+  color: #7ed200;
+}
+
 .score {
   margin-top: 0.6em;
   font-size: 1.4em;
