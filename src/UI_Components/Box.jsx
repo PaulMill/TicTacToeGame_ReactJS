@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Sign } from './';
 
 export const Box = ({ boxElement, clicked }) => {
@@ -10,4 +11,16 @@ export const Box = ({ boxElement, clicked }) => {
             <Sign char={boxElement.selection} />
         </li>
     )
+}
+
+Box.propTypes = {
+    boxElement: PropTypes.objectOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            selected: PropTypes.bool.isRequired,
+            selection: PropTypes.string.isRequired,
+            isWinning: PropTypes.bool.isRequired
+        })
+    ).isRequired,
+    clicked: PropTypes.func
 }
