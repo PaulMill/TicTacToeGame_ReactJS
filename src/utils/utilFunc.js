@@ -28,3 +28,22 @@ export const checkIfWon = (grid) => {
     }
     return [null, null]
 }
+
+export const addScore = (char, current) => {
+    if(!current.hasOwnProperty(char)) return null;
+
+    const currentScoreElement = current[char];
+    const updatedScoreElement = { score: currentScoreElement.score + 1, isWon: true };
+    const newScoreObj = {...current};
+    newScoreObj[char] = updatedScoreElement;
+    
+    return newScoreObj;
+}
+
+export const resetWonScore = (current) => {
+    const newScoreObj = {...current};
+    for(const key in newScoreObj) {
+        newScoreObj[key] = {...newScoreObj[key], isWon: false };
+    }
+    return newScoreObj;
+}

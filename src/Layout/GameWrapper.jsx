@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { GRID_3X3, getChar, checkIfWon } from '../utils';
+import { GRID_3X3, getChar, checkIfWon, addScore, resetWonScore } from '../utils';
 import { Box } from "../UI_Components";
 
-export const GameWrapper = ({ resetGrid, setResetGrid, setRoundEnds } ) => {
+export const GameWrapper = ({ score, setScore, resetGrid, setResetGrid, setRoundEnds } ) => {
     const [grid, setGrid] = useState(GRID_3X3);
     const [winningGrid, setWinningGrid] = useState([]);
     const [pointer, setPointer] = useState(0);
     
     useEffect(() => {
         if(resetGrid) {
-            setGrid(GRID_3X3);
-            setWinningGrid([]);
-            setResetGrid(false);
-            setRoundEnds(false);
+            setScore(resetWonScore(score)); // resets player UI classes
+            setGrid(GRID_3X3); // reset new grin
+            setWinningGrid([]); // reset winning grid to an empty []
+            setResetGrid(false); // set grid is already resets
+            setRoundEnds(false); // set round starts
         }
     }, [resetGrid])
 
@@ -24,6 +25,7 @@ export const GameWrapper = ({ resetGrid, setResetGrid, setRoundEnds } ) => {
             newGrid[comb[1]] = {...newGrid[comb[1]], isWinning: true };
             newGrid[comb[2]] = {...newGrid[comb[2]], isWinning: true };
             setWinningGrid(newGrid);
+            setScore(addScore(char, score))
             setRoundEnds(true);
         }
     }, [grid])

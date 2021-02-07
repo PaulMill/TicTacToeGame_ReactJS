@@ -9,7 +9,7 @@ export const GameArea = () => {
 
     return (
         <section className="game-area">
-            <GameWrapper resetGrid={resetGrid} setResetGrid={setResetGrid} setRoundEnds={setRoundEnds} />
+            <GameWrapper score={score} setScore={setScore} resetGrid={resetGrid} setResetGrid={setResetGrid} setRoundEnds={setRoundEnds} />
             <GameControlsWrapper score={score} setScore={setScore} setNewRound={() => setResetGrid(true)} roundEnds={roundEnds} />
         </section>
     )
