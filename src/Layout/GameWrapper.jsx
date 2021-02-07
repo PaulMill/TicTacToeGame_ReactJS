@@ -2,10 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { GRID_3X3, getChar, checkIfWon } from '../utils';
 import { Box } from "../UI_Components";
 
-export const GameWrapper = () => {
+export const GameWrapper = ({ resetGrid, setResetGrid, setRoundEnds } ) => {
     const [grid, setGrid] = useState(GRID_3X3);
     const [winningGrid, setWinningGrid] = useState([]);
     const [pointer, setPointer] = useState(0);
+    
+    useEffect(() => {
+        if(resetGrid) {
+            setGrid(GRID_3X3);
+            setResetGrid(false);
+        }
+    }, [resetGrid])
 
     useEffect(() => {
         const [char, comb] = checkIfWon(grid)
@@ -15,6 +22,7 @@ export const GameWrapper = () => {
             newGrid[comb[1]] = {...newGrid[comb[1]], isWinning: true };
             newGrid[comb[2]] = {...newGrid[comb[2]], isWinning: true };
             setWinningGrid(newGrid);
+            setRoundEnds(true);
         }
     }, [grid])
     
