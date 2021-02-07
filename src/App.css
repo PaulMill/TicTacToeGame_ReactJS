@@ -10,9 +10,12 @@
   color: white;
   font-weight: 200;
 }
+.app-header_text {
+  font-weight: 600;
+}
 
 .game-area {
-  width: 50%;
+  min-width: 50%;
   height: 75%;
   border: 1px solid red; 
   display: flex;
@@ -27,6 +30,8 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  list-style: none;
+  padding: 0px;
 }
 .box {
   min-width: 33.3%;
@@ -113,3 +118,23 @@
   border-right-style: none;
 }
 
+/* Mediaquery for iPad, iPhone */
+
+@media all and (max-width: 1200px) and (min-width: 700px) {
+  .game-area {
+    min-width: 80%;
+    max-width: 720px;
+    height: 60%;
+  }
+}
+
+@media all and (max-width: 699px) and (min-width: 320px) {
+  .game-wrapper {
+    height: 55%;
+    width: 90%;
+  }
+  .game-area {
+    min-width: 95%;
+    height: 70%;
+  }
+}
