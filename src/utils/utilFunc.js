@@ -29,6 +29,18 @@ export const checkIfWon = (grid) => {
     return [null, null]
 }
 
+export const checkIfTies = (grid) => {
+    let isTies = true;
+
+    for(let i = 0; i < grid.length; i++) {
+        if(!grid[i].selected){
+            isTies = false;
+        }
+    }
+    
+    return isTies;
+}
+
 export const addScore = (char, current) => {
     if(!current.hasOwnProperty(char)) return null;
 

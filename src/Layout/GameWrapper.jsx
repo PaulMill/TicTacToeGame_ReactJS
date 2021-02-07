@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GRID_3X3, getChar, checkIfWon, addScore, resetWonScore } from '../utils';
+import { GRID_3X3, getChar, checkIfWon, addScore, resetWonScore, checkIfTies } from '../utils';
 import { Box } from "../UI_Components";
 
 export const GameWrapper = ({ score, setScore, resetGrid, setResetGrid, setRoundEnds } ) => {
@@ -26,6 +26,9 @@ export const GameWrapper = ({ score, setScore, resetGrid, setResetGrid, setRound
             newGrid[comb[2]] = {...newGrid[comb[2]], isWinning: true };
             setWinningGrid(newGrid);
             setScore(addScore(char, score))
+            setRoundEnds(true);
+        } else if(checkIfTies(grid)) {
+            setScore(addScore('T', score))
             setRoundEnds(true);
         }
     }, [grid])
