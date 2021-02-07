@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { GRID_3X3, getChar, checkIfWon, addScore, resetWonScore, checkIfTies } from '../utils';
 import { Box } from "../UI_Components";
 
@@ -56,4 +57,34 @@ export const GameWrapper = ({ score, setScore, resetGrid, setResetGrid, setRound
             : grid.map(box => (<Box key={box.id} boxElement={box} clicked={clickHandler}/>))}
         </ul>
     )
+}
+
+
+GameWrapper.propTypes = {
+    score: PropTypes.objectOf(
+        PropTypes.shape({
+            X: PropTypes.objectOf(
+                PropTypes.shape({
+                    score: PropTypes.number.isRequired,
+                    isWon: PropTypes.bool.isRequired
+                })
+            ),
+            O: PropTypes.objectOf(
+                PropTypes.shape({
+                    score: PropTypes.number.isRequired,
+                    isWon: PropTypes.bool.isRequired
+                })
+            ),
+            T: PropTypes.objectOf(
+                PropTypes.shape({
+                    score: PropTypes.number.isRequired,
+                    isWon: PropTypes.bool.isRequired
+                })
+            )
+        })
+    ).isRequired,
+    setScore: PropTypes.func,
+    resetGrid: PropTypes.func, 
+    setResetGrid: PropTypes.func, 
+    setRoundEnds: PropTypes.func 
 }
