@@ -1,13 +1,13 @@
 export const GRID_3X3 = [
-    {id: 0, selected: false, selection: ""},
-    {id: 1, selected: false, selection: ""},
-    {id: 2, selected: false, selection: ""},
-    {id: 3, selected: false, selection: ""},
-    {id: 4, selected: false, selection: ""},
-    {id: 5, selected: false, selection: ""},
-    {id: 6, selected: false, selection: ""},
-    {id: 7, selected: false, selection: ""},
-    {id: 8, selected: false, selection: ""},
+    {id: 0, selected: false, selection: "", isWinning: false},
+    {id: 1, selected: false, selection: "", isWinning: false},
+    {id: 2, selected: false, selection: "", isWinning: false},
+    {id: 3, selected: false, selection: "", isWinning: false},
+    {id: 4, selected: false, selection: "", isWinning: false},
+    {id: 5, selected: false, selection: "", isWinning: false},
+    {id: 6, selected: false, selection: "", isWinning: false},
+    {id: 7, selected: false, selection: "", isWinning: false},
+    {id: 8, selected: false, selection: "", isWinning: false},
 ];
 
 export const WIN_COMBINATION_3X3 = [
