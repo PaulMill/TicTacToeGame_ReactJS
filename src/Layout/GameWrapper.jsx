@@ -10,7 +10,9 @@ export const GameWrapper = ({ resetGrid, setResetGrid, setRoundEnds } ) => {
     useEffect(() => {
         if(resetGrid) {
             setGrid(GRID_3X3);
+            setWinningGrid([]);
             setResetGrid(false);
+            setRoundEnds(false);
         }
     }, [resetGrid])
 
