@@ -15,4 +15,10 @@ describe('GameWrapper component', () => {
     it('component renders correctly', () => {
         expect(wrapper).not.toBeNull();
     })
+
+    it('set by default 9 empty boxes', () => {
+        const boxesList = wrapper.find('li');
+        expect(boxesList).toHaveLength(9);
+        expect(boxesList.map(el => el.text())).toEqual(["","","","","","","","",""]);
+    })
 })
