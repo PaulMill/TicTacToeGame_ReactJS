@@ -31,4 +31,10 @@ describe('GameWrapper component', () => {
         boxesList.at(3).simulate('click');
         expect(boxesList.map(b => b.text())).toEqual(["X","O","X","O","","","","",""]);
     })
+
+    it('double click on the same box', () => {
+        wrapper.find(Box).first().simulate('click');
+        wrapper.find(Box).first().simulate('click');
+        expect(wrapper.find(Box).first().text()).toEqual('X');
+    })
 })
