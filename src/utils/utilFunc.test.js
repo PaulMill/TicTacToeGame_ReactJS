@@ -10,7 +10,7 @@ describe('Utility functions', () => {
     })
 
     it('check if crashed getChar function if not correct data type value', () => {
-        expect(getChar({})).toEqual('X');
+        expect(getChar({})).toEqual("O");
     })
     
 })
