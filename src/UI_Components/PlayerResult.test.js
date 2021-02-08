@@ -27,5 +27,5 @@ describe('PlayerResult component', () => {
         wrapper.setProps({textPlayer: "Player (X)", score: 1, isWon: true});
         expect(wrapper.find('.player-won')).toHaveLength(1);
     })
-
+    
 })
