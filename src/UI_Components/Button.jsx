@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export const Button = ({text, clicked, isActive, color}) => {
     
@@ -11,4 +12,11 @@ export const Button = ({text, clicked, isActive, color}) => {
     const btnClass = `btn ${isActive ? 'btn-active' : ''}`;
 
     return (<div style={ styleActive } className={btnClass} onClick={clicked}>{text}</div>)
+}
+
+Button.propTypes = {
+    text: PropTypes.string.isRequired,
+    clicked: PropTypes.func,
+    isActive: PropTypes.bool.isRequired,
+    color: PropTypes.string
 }
