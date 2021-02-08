@@ -6,11 +6,24 @@ import { WINNING_PLAYER as initScore } from '../utils';
 
 describe('GameWrapper component', () => {
     const props = { score: initScore, setScore: jest.fn(), resetGrid: false, setResetGrid: jest.fn(), setRoundEnds: jest.fn() }
-
+    const winGrid = [
+        {id: 0, selected: true, selection: "X", isWinning: true},
+        {id: 1, selected: true, selection: "X", isWinning: true},
+        {id: 2, selected: true, selection: "X", isWinning: true},
+        {id: 3, selected: true, selection: "O", isWinning: false},
+        {id: 4, selected: true, selection: "O", isWinning: false},
+        {id: 5, selected: false, selection: "", isWinning: false},
+        {id: 6, selected: false, selection: "", isWinning: false},
+        {id: 7, selected: false, selection: "", isWinning: false},
+        {id: 8, selected: false, selection: "", isWinning: false},
+    ];
+    
     let wrapper;
+    let boxesList
 
     beforeEach(() => {
-        wrapper = mount(<GameWrapper {...props}/>)
+        wrapper = mount(<GameWrapper {...props}/>);
+        boxesList = wrapper.find(Box);
     })
 
     it('component renders correctly', () => {
@@ -18,13 +31,11 @@ describe('GameWrapper component', () => {
     })
 
     it('set by default 9 empty boxes', () => {
-        const boxesList = wrapper.find(Box);
         expect(boxesList).toHaveLength(9);
         expect(boxesList.map(el => el.text())).toEqual(["","","","","","","","",""]);
     })
 
     it('set X and O on every next click', () => {
-        const boxesList = wrapper.find(Box);
         boxesList.at(0).simulate('click');
         boxesList.at(1).simulate('click');
         boxesList.at(2).simulate('click');
@@ -33,8 +44,18 @@ describe('GameWrapper component', () => {
     })
 
     it('double click on the same box', () => {
-        wrapper.find(Box).first().simulate('click');
-        wrapper.find(Box).first().simulate('click');
-        expect(wrapper.find(Box).first().text()).toEqual('X');
+        boxesList.first().simulate('click');
+        boxesList.first().simulate('click');
+        expect(boxesList.first().text()).toEqual('X');
+    })
+
+    it('check winning numbers', () => {
+        boxesList.at(0).simulate('click'); // X
+        boxesList.at(3).simulate('click'); // O
+        boxesList.at(1).simulate('click'); // X
+        boxesList.at(4).simulate('click'); // O
+        boxesList.at(2).simulate('click'); // X
+
+        expect(wrapper.find(Box).map(b => b.props().boxElement)).toEqual(winGrid);
     })
 })
