@@ -4,6 +4,7 @@ import { Box } from './';
 
 describe('GameWrapper component', () => {
     const mockOneBoxData = {id: 0, selected: false, selection: "", isWinning: false}
+    const mockNextProps = { id: 0, selected: true, selection: "X", isWinning: false }
     const props = { boxElement: mockOneBoxData, clicked: jest.fn() }
     
     let wrapper;
@@ -14,5 +15,10 @@ describe('GameWrapper component', () => {
 
     it('component renders correctly', () => {
         expect(wrapper).not.toBeNull();
+    })
+
+    it('call function on click on box', () => {
+        wrapper.simulate('click');
+        expect(props.clicked).toBeCalled();
     })
 })
