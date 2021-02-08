@@ -14,27 +14,6 @@ export const PlayerResult = ({textPlayer, score, isWon}) => {
 
 PlayerResult.propTypes = {
     textPlayer: PropTypes.string.isRequired,
-    score: PropTypes.objectOf(
-        PropTypes.shape({
-            X: PropTypes.objectOf(
-                PropTypes.shape({
-                    score: PropTypes.number.isRequired,
-                    isWon: PropTypes.bool.isRequired
-                })
-            ),
-            O: PropTypes.objectOf(
-                PropTypes.shape({
-                    score: PropTypes.number.isRequired,
-                    isWon: PropTypes.bool.isRequired
-                })
-            ),
-            T: PropTypes.objectOf(
-                PropTypes.shape({
-                    score: PropTypes.number.isRequired,
-                    isWon: PropTypes.bool.isRequired
-                })
-            )
-        })
-    ).isRequired,
+    score: PropTypes.number.isRequired,
     isWon: PropTypes.bool.isRequired
 };

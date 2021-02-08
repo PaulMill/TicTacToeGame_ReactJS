@@ -2,9 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Box } from './';
 
-describe('GameWrapper component', () => {
+describe('Box component', () => {
     const mockOneBoxData = {id: 0, selected: false, selection: "", isWinning: false}
-    const mockNextProps = { id: 0, selected: true, selection: "X", isWinning: false }
     const props = { boxElement: mockOneBoxData, clicked: jest.fn() }
     
     let wrapper;
