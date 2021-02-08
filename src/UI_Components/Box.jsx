@@ -14,13 +14,11 @@ export const Box = ({ boxElement, clicked }) => {
 }
 
 Box.propTypes = {
-    boxElement: PropTypes.objectOf(
-        PropTypes.shape({
+    boxElement: PropTypes.shape({
             id: PropTypes.number.isRequired,
             selected: PropTypes.bool.isRequired,
             selection: PropTypes.string.isRequired,
             isWinning: PropTypes.bool.isRequired
-        })
-    ).isRequired,
+        }),
     clicked: PropTypes.func
 }
