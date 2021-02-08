@@ -84,7 +84,7 @@ GameWrapper.propTypes = {
         })
     ).isRequired,
     setScore: PropTypes.func,
-    resetGrid: PropTypes.func, 
+    resetGrid: PropTypes.bool, 
     setResetGrid: PropTypes.func, 
     setRoundEnds: PropTypes.func 
 }

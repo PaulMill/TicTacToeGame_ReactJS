@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import { GameWrapper, GameControlsWrapper } from './';
 import { WINNING_PLAYER } from '../utils'
 
