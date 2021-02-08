@@ -12,5 +12,9 @@ describe('Sign component', () => {
     it('component renders correctly', () => {
         expect(wrapper).not.toBeNull();
     })
+
+    it('check to set correctly text of player', () => {
+        expect(wrapper.find('.sign').text()).toEqual("O")
+    })
     
 })
