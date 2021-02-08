@@ -12,7 +12,7 @@ const check = (arrWin, arrGrid, char) => {
 
 export const checkIfWon = (grid) => {
     if(!Array.isArray(grid) || !grid.length ) return [null, null];
-    
+
     const charX = 'X';
     const charO = 'O';
     let idx = 0;
@@ -32,6 +32,9 @@ export const checkIfWon = (grid) => {
 }
 
 export const checkIfTies = (grid) => {
+    
+    if(!Array.isArray(grid) || !grid.length ) return null;
+
     let isTies = true;
 
     for(let i = 0; i < grid.length; i++) {

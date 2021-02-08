@@ -3,9 +3,9 @@ import {
     WINNING_PLAYER as initScore, 
     getChar, 
     checkIfWon, 
+    checkIfTies,  
     addScore, 
-    resetWonScore, 
-    checkIfTies  
+    resetWonScore 
 } from './';
 
 describe('Utility functions', () => {
@@ -32,6 +32,7 @@ describe('Utility functions', () => {
         {id: 8, selected: true, selection: "X", isWinning: false},
     ];
 
+    // <---------------- getChar -------------->
     it('getChar pass odd number return X and even numbers return O', () => {
         expect(getChar(2)).toEqual('X');
         expect(getChar(1)).toEqual('O');
@@ -42,14 +43,25 @@ describe('Utility functions', () => {
         expect(getChar({})).toEqual("O");
     })
 
+    // <---------------- checkIfWon -------------->
     it('check function checkIfWon pass grids', () => {
         expect(checkIfWon(mockWinningGrid)).toEqual(['X', [0, 4, 8]]);
         expect(checkIfWon(mockTiesGrid)).toEqual([null, null]);
     })
-
     it('check function checkIfWon pass empty grid and non array data type not crash app', () => {
         expect(checkIfWon([])).toEqual([null, null]);
         expect(checkIfWon({id:1})).toEqual([null, null]);
+    })
+
+    // <---------------- checkIfTies -------------->
+    it('check function checkIfTies pass grids', () => {
+        expect(checkIfTies(mockTiesGrid)).toBeTruthy();
+        expect(checkIfTies(mockWinningGrid)).toBeFalsy();
+    })
+
+    it('check function checkIfTies pass empty grid and non array data type not crash app', () => {
+        expect(checkIfTies([])).toBeNull();
+        expect(checkIfTies({id:1})).toBeNull();
     })
     
 })
