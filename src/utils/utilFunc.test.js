@@ -46,5 +46,10 @@ describe('Utility functions', () => {
         expect(checkIfWon(mockWinningGrid)).toEqual(['X', [0, 4, 8]]);
         expect(checkIfWon(mockTiesGrid)).toEqual([null, null]);
     })
+
+    it('check function checkIfWon pass empty grid and non array data type not crash app', () => {
+        expect(checkIfWon([])).toEqual([null, null]);
+        expect(checkIfWon({id:1})).toEqual([null, null]);
+    })
     
 })

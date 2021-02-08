@@ -11,6 +11,8 @@ const check = (arrWin, arrGrid, char) => {
 }
 
 export const checkIfWon = (grid) => {
+    if(!Array.isArray(grid) || !grid.length ) return [null, null];
+    
     const charX = 'X';
     const charO = 'O';
     let idx = 0;
