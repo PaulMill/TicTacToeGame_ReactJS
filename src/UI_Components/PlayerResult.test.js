@@ -18,4 +18,9 @@ describe('PlayerResult component', () => {
     it('check to set correctly text of player', () => {
         expect(wrapper.find('.player').text()).toEqual("Player (X)")
     })
+
+    it('check to set correctly score of player', () => {
+        expect(wrapper.find('.score').text()).toEqual("1")
+    })
+
 })
