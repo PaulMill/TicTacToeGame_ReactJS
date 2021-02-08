@@ -74,5 +74,11 @@ describe('Utility functions', () => {
     it('check function addScore pass empty object', () => {
         expect(addScore('', {})).toBeNull();
     })
-    
+
+    // <---------------- resetWonScore -------------->
+    it('check function resetWonScore pass char and score', () => {
+        expect(resetWonScore(mockScoreObj)).toStrictEqual({ ...mockScoreObj, O: { score: 1, isWon: false } });
+        expect(resetWonScore({...mockScoreObj, O: { score: 2, isWon: true }})).toStrictEqual({ ...mockScoreObj, O: { score: 2, isWon: false } });
+    })
+
 })
