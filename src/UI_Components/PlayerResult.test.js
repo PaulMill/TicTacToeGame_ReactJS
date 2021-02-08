@@ -23,4 +23,9 @@ describe('PlayerResult component', () => {
         expect(wrapper.find('.score').text()).toEqual("1")
     })
 
+    it('check if class applied once set won value ', () => {
+        wrapper.setProps({textPlayer: "Player (X)", score: 1, isWon: true});
+        expect(wrapper.find('.player-won')).toHaveLength(1);
+    })
+
 })
