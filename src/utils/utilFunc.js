@@ -47,7 +47,8 @@ export const checkIfTies = (grid) => {
 }
 
 export const addScore = (char, current) => {
-    if(!current.hasOwnProperty(char)) return null;
+
+    if(!current.hasOwnProperty(char) || !char) return null;
 
     const currentScoreElement = current[char];
     const updatedScoreElement = { score: currentScoreElement.score + 1, isWon: true };

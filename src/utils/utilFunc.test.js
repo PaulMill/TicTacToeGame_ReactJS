@@ -53,9 +53,8 @@ describe('Utility functions', () => {
         expect(checkIfWon(mockWinningGrid)).toEqual(['X', [0, 4, 8]]);
         expect(checkIfWon(mockTiesGrid)).toEqual([null, null]);
     })
-    it('check function checkIfWon pass empty grid and non array data type not crash app', () => {
+    it('check function checkIfWon pass empty grid', () => {
         expect(checkIfWon([])).toEqual([null, null]);
-        expect(checkIfWon({id:1})).toEqual([null, null]);
     })
 
     // <---------------- checkIfTies -------------->
@@ -63,15 +62,17 @@ describe('Utility functions', () => {
         expect(checkIfTies(mockTiesGrid)).toBeTruthy();
         expect(checkIfTies(mockWinningGrid)).toBeFalsy();
     })
-    it('check function checkIfTies pass empty grid and non array data type not crash app', () => {
+    it('check function checkIfTies pass empty grid', () => {
         expect(checkIfTies([])).toBeNull();
-        expect(checkIfTies({id:1})).toBeNull();
     })
 
     // <---------------- addScore -------------->
     it('check function addScore pass char and score', () => {
         expect(addScore('O', initScore)).toEqual(mockScoreObj);
         expect(addScore('T', mockScoreObj)).toEqual({...mockScoreObj, T: { score: 1, isWon: true }});
+    })
+    it('check function addScore pass empty object', () => {
+        expect(addScore('', {})).toBeNull();
     })
     
 })
