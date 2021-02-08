@@ -31,6 +31,11 @@ describe('Utility functions', () => {
         {id: 7, selected: true, selection: "O", isWinning: false},
         {id: 8, selected: true, selection: "X", isWinning: false},
     ];
+    const mockScoreObj = {
+        X: { score: 0, isWon: false },
+        O: { score: 1, isWon: true },
+        T: { score: 0, isWon: false }
+    }
 
     // <---------------- getChar -------------->
     it('getChar pass odd number return X and even numbers return O', () => {
@@ -58,10 +63,15 @@ describe('Utility functions', () => {
         expect(checkIfTies(mockTiesGrid)).toBeTruthy();
         expect(checkIfTies(mockWinningGrid)).toBeFalsy();
     })
-
     it('check function checkIfTies pass empty grid and non array data type not crash app', () => {
         expect(checkIfTies([])).toBeNull();
         expect(checkIfTies({id:1})).toBeNull();
+    })
+
+    // <---------------- addScore -------------->
+    it('check function addScore pass char and score', () => {
+        expect(addScore('O', initScore)).toEqual(mockScoreObj);
+        expect(addScore('T', mockScoreObj)).toEqual({...mockScoreObj, T: { score: 1, isWon: true }});
     })
     
 })
