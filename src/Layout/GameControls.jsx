@@ -5,7 +5,6 @@ import { Button, PlayerResult } from '../UI_Components';
 export const GameControlsWrapper = ({ score, setScore, setNewRound, roundEnds }) => {
 
     const resetClicked = () => {
-        // to do reset button
         const newScore = {...score};
         for(const key in newScore) {
             newScore[key] = {score: 0, isWon: false};
