@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const PlayerResult = ({textPlayer, score, isWon}) => {
     const textClass = `player-result-wrapper ${isWon ? 'player-won' : ''}`;
@@ -10,3 +11,30 @@ export const PlayerResult = ({textPlayer, score, isWon}) => {
           </div>
     )
 }
+
+PlayerResult.propTypes = {
+    textPlayer: PropTypes.string.isRequired,
+    score: PropTypes.objectOf(
+        PropTypes.shape({
+            X: PropTypes.objectOf(
+                PropTypes.shape({
+                    score: PropTypes.number.isRequired,
+                    isWon: PropTypes.bool.isRequired
+                })
+            ),
+            O: PropTypes.objectOf(
+                PropTypes.shape({
+                    score: PropTypes.number.isRequired,
+                    isWon: PropTypes.bool.isRequired
+                })
+            ),
+            T: PropTypes.objectOf(
+                PropTypes.shape({
+                    score: PropTypes.number.isRequired,
+                    isWon: PropTypes.bool.isRequired
+                })
+            )
+        })
+    ).isRequired,
+    isWon: PropTypes.bool.isRequired
+};
