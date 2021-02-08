@@ -24,4 +24,9 @@ describe('Button component', () => {
         wrapper.simulate('click');
         expect(props.clicked).toBeCalled();
     })
+
+    it('check to set correctly text on button', () => {
+        expect(wrapper.find('.btn').text()).toEqual("RESET")
+    })
+
 })
