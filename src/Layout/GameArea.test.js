@@ -1,8 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { render, fireEvent, getByTestId} from "@testing-library/react";
 import { GameArea, GameWrapper, GameControlsWrapper } from './';
-import { WINNING_PLAYER as initScore } from '../utils';
 
 describe('GameArea component', () => {
     let gameAreaWrapper;
