@@ -19,4 +19,9 @@ describe('Button component', () => {
         wrapper.setProps({ text: "RESET", clicked: jest.fn(), isActive: true, color: "#ccc" });
         expect(wrapper.find('.btn-active')).toHaveLength(1);
     })
+
+    it('check call clicked function on click on button', () => {
+        wrapper.simulate('click');
+        expect(props.clicked).toBeCalled();
+    })
 })
